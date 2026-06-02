@@ -1,0 +1,10 @@
+# Copy to config/encryption_keys.yml (or run: bin/rails encryption:setup)
+# Use unique random values — never commit the real file.
+development:
+  primary_key: replace_with_64_char_hex
+  deterministic_key: replace_with_64_char_hex
+  key_derivation_salt: replace_with_64_char_hex
+test:
+  primary_key: replace_with_64_char_hex-test
+  deterministic_key: replace_with_64_char_hex-test
+  key_derivation_salt: replace_with_64_char_hex-test

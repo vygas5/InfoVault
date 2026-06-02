@@ -1,0 +1,16 @@
+<% content_for :title, @entry.title %>
+
+<p class="entry-meta">
+  <span class="badge <%= "badge-credential" if @entry.credential? %>"><%= kind_label(@entry) %></span>
+  Updated <%= @entry.updated_at.to_fs(:long) %>
+</p>
+
+<h1><%= @entry.title %></h1>
+
+<div class="entry-body"><%= @entry.body %></div>
+
+<div class="actions">
+  <%= link_to "Edit", edit_vault_entry_path(@entry), class: "btn btn-secondary" %>
+  <%= link_to "Back", vault_entries_path, class: "btn btn-secondary" %>
+  <%= button_to "Delete", @entry, method: :delete, class: "btn btn-danger", form: { onsubmit: "return confirm('Delete this entry permanently?')" } %>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for(:title) || "InfoVault" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <%= link_to "InfoVault", root_path, class: "logo" %>
+      <% if authenticated? %>
+        <nav>
+          <%= link_to "All entries", root_path %>
+          <%= link_to "New note", new_vault_entry_path(kind: :note) %>
+          <%= link_to "New secret", new_vault_entry_path(kind: :credential) %>
+          <%= button_to "Sign out", session_path, method: :delete, class: "btn-link" %>
+        </nav>
+      <% end %>
+    </header>
+
+    <main class="container">
+      <% if flash[:alert] %><p class="flash flash-alert"><%= flash[:alert] %></p><% end %>
+      <% if flash[:notice] %><p class="flash flash-notice"><%= flash[:notice] %></p><% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

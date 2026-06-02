@@ -1,0 +1,23 @@
+<% if entry.errors.any? %>
+  <ul class="errors">
+    <% entry.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: entry do |form| %>
+  <%= form.label :kind, "Type" %>
+  <%= form.select :kind, VaultEntry.kinds.keys.map { |k| [ k == "credential" ? "Secret" : k.humanize, k ] } %>
+
+  <%= form.label :title, "Title" %>
+  <%= form.text_field :title, required: true, autofocus: true, placeholder: entry.credential? ? "e.g. GitHub — work account" : "e.g. Wi‑Fi password at home" %>
+
+  <%= form.label :body, entry.credential? ? "Username, password, or other secrets" : "Content" %>
+  <%= form.text_area :body, placeholder: entry.credential? ? "username: you@example.com\npassword: ••••••••" : "Write your note here…" %>
+
+  <div class="actions">
+    <%= form.submit entry.persisted? ? "Save changes" : "Save" %>
+    <%= link_to "Cancel", entry.persisted? ? entry : root_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

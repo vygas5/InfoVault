@@ -1,0 +1,5 @@
+<% content_for :title, "New #{kind_label(@entry).downcase}" %>
+
+<h1>New <%= kind_label(@entry).downcase %></h1>
+
+<%= render "form", entry: @entry %>

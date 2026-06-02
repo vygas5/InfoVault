@@ -1,0 +1,24 @@
+<% content_for :title, "Your vault" %>
+
+<h1>Your vault</h1>
+
+<div class="toolbar">
+  <%= link_to "New Note", new_vault_entry_path(kind: :note), class: "btn" %>
+  <%= link_to "New Secret", new_vault_entry_path(kind: :credential), class: "btn btn-secondary" %>
+</div>
+
+<% if @entries.any? %>
+  <ul class="entry-list">
+    <% @entries.each do |entry| %>
+      <li>
+        <%= link_to entry do %>
+          <span class="badge <%= "badge-credential" if entry.credential? %>"><%= kind_label(entry) %></span>
+          <%= entry.title %>
+          <div class="entry-meta">Updated <%= time_ago_in_words(entry.updated_at) %> ago</div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="empty-state">Nothing stored yet. Add a note or secret to get started.</p>
+<% end %>
