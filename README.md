@@ -33,9 +33,9 @@ Treat this as a **local, single-user-style vault**, more of a demo than a true p
 
 ## Stack
 
-- Rails 8.1, SQLite, Propshaft CSS
-- Built-in `rails generate authentication` (sessions, no Devise)
-- No JavaScript build step
+- Rails 8.1
+- SQLite
+- Propshaft CSS
 
 ## Encryption keys
 
