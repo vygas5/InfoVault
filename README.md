@@ -12,7 +12,7 @@ bin/rails server
 
 Open [http://localhost:3000](http://localhost:3000), create an account, and add entries. **Be sure to remember your passwords**, as there is not any password reset function within this program.
 
-Requirements: Ruby 3.4+ (see `.ruby-version`), Bundler, SQLite.
+Requirements: Ruby 3.4+, Bundler, SQLite.
 
 ## What “secure” means here
 
