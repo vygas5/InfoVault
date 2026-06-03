@@ -1,4 +1,4 @@
-# Personal Vault
+# InfoVault
 
 A minimal Ruby on Rails app for storing **notes** and **secrets/credentials** locally. Each user has a private vault; entry titles and bodies are **encrypted at rest** in SQLite.
 
